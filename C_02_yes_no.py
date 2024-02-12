@@ -1,4 +1,4 @@
-# check users enter yes (y) or no (n)
+# check # checks users enter yes (y) or no (n)
 def _yes_no(question):
     while True:
         response = input(question).lower()
