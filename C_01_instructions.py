@@ -7,11 +7,11 @@ def yes_no(question):
         # repeats if users say yes / no
 
         if response == "yes" or response == "y":
-            return "you chose yes"
+            return "yes"
         elif response == "no" or response == "n":
-            return "you chose no"
+            return "no"
         else:
-            print("You did not choose a valid response")
+            print("Please enter yes / no")
 
 
 def instructions():
@@ -34,8 +34,6 @@ If you lose the round, then you don"t get any points.
 If you and the computer tie (eg: you both geta score of 11,
 then you will have 11 points added to your score.
 
-has context menu
-
     ''')
 
 
@@ -50,4 +48,4 @@ want_instructions = yes_no("Do you want to read the instructions?")
 if want_instructions == "yes":
     instructions()
 
-    print("program")
+print("program continues")

@@ -1,20 +1,17 @@
 # check # checks users enter yes (y) or no (n)
-def _yes_no(question):
+def yes_no(question):
     while True:
         response = input(question).lower()
 
         if response == "yes" or response == "y":
-            return "you chose yes"
+            return "yes"
         elif response == "no" or response == "n":
-            return "you chose no"
+            return "no"
         else:
-            print("You did not choose a vaid response")
+            print("You did not choose a valid response")
 
 
 # Main routine
 while True:
-    want_instructions = _yes_no("Do you want to read the instructions?")
+    want_instructions = yes_no("Do you want to read the instructions?")
     print(f"you chose {want_instructions}")
-
-    
-
