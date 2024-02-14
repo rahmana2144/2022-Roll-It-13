@@ -13,6 +13,7 @@ def yes_no(question):
         else:
             print("Please enter yes / no")
 
+
 # Displays instructions to user
 def instructions():
     print('''
