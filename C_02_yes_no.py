@@ -13,5 +13,5 @@ def yes_no(question):
 
 # Main routine
 while True:
-    want_instructions = yes_no("Do you want to read the instructions?")
+    want_instructions = yes_no("Do you want to read the instructions? ")
     print(f"you chose {want_instructions}")
