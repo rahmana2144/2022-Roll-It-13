@@ -59,19 +59,32 @@ print(f"The computer rolled a total of {computer_points}.")
 # Loop (while both user / computer have <= 13 points)...
 while computer_points <= 13 and user_points <= 13:
 
-    # ask use if they want to roll again, update
+    # ask user if they want to roll again, update
     # points / status
     print()
     roll_again = input("Do you want to roll the dice (type 'no' to pass): ")
     if roll_again == "yes":
         user_move = roll_die()
         user_points += user_move
-        print(f"You rolled a {user_move}.. You now have {user_points} points. ")
 
-    print("\nPress <enter> to continue...")
-    input()
+        # If user goes over 13 points, tell them that they lose and set points to 0
+        if user_points > 13:
+            print(f"💥💥💥Oops! You rolled a {user_move} so your total is {user_points}. "
+                  f"Which is over 13 points . 💥💥💥")
+    # reset user points to zero so that when we update their
+    # score at the end of round it is correct.
+    user_points = 0
+
+    break
+
+
+else:
+    print(f"You rolled a {user_move} and have a total score of {user_points}.")
+
+
 
     # Roll die for computer and update computer points
+
     computer_move = roll_die()
     computer_points += computer_move
     print(f"The computer rolled a {computer_move}. The computer"
@@ -92,7 +105,7 @@ while computer_points <= 13 and user_points <= 13:
 # Show round results
 if user_points < computer_points:
     print("Sorry - you lost this round and no points"
-          "have been added to your total score. The computer's score has "
+          " have been added to your total score. The computer's score has "
           f"increased by {computer_points} points. ")
 
 # currently does not include double points!
