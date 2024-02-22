@@ -41,8 +41,12 @@ user_points = user_first[0]
 double_points = user_first[1]
 
 # Tell the user if they are eligible for double points
-if double_points == "yes":
-    print("If you win this round, you gain double points!")
+if double_points == "no":
+    double_feedback = ""
+
+else: double_feedback = "If you win this round, you gain double points!"
+
+print(f" you got {user_first}, {double_feedback}")
 
 # Get initial dice rolls for computer
 computer_first = two_rolls("Computer")
@@ -121,4 +125,5 @@ else:
         user_points *= 2
 
     print(f"👍👍👍Yay! You won the round and {user_points} points have"
-          f"been added to your score👍👍👍")
+          f"been added to your score👍👍👍"
+          f"")
