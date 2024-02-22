@@ -32,6 +32,12 @@ def two_rolls(who):
 
 
 # Main Routine starts here
+
+# initialise 'pass' variable
+user_pass = "no"
+computer_pass = "no"
+
+# Start round
 print("Press <enter> to begin this round: ")
 input()
 
@@ -44,7 +50,8 @@ double_points = user_first[1]
 if double_points == "no":
     double_feedback = ""
 
-else: double_feedback = "If you win this round, you gain double points!"
+else:
+    double_feedback = "If you win this round, you gain double points!"
 
 print(f" you got {user_first}, {double_feedback}")
 
@@ -60,8 +67,14 @@ while computer_points <= 13 and user_points <= 13:
     # ask user if they want to roll again, update
     # points / status
     print()
-    roll_again = input("Do you want to roll the dice (type 'no' to pass): ")
-    if roll_again == "yes":
+    if user_pass =="no":
+
+        roll_again = input("Do you want to roll the dice (type 'no' to pass): ")
+    else:
+        roll_again == "no"
+
+     if roll_again == "yes":
+
         user_move = roll_die()
         user_points += user_move
 
@@ -78,6 +91,10 @@ while computer_points <= 13 and user_points <= 13:
 
         else:
             print(f"You rolled a {user_move}and have a total score of {user_points}.")
+
+
+    else:
+        user_pass = "yes"
 
     # Roll die for computer and update computer points
     computer_move = roll_die()
