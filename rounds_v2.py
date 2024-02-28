@@ -1,4 +1,3 @@
-
 import random
 
 
@@ -107,7 +106,7 @@ while computer_points <= 13 and user_points <= 13:
         computer_move = roll_die()
         computer_points += computer_move
 
-    # check computer has not gone over...
+        # check computer has not gone over...
         if computer_points > 13:
             print(f" 💥💥💥The computer rolled a {computer_move}, taking their points"
                   f" to {computer_move}. This is over 13 points so the computer loses!💥💥💥")
@@ -119,8 +118,6 @@ while computer_points <= 13 and user_points <= 13:
                   f" now has {computer_points}.")
 
     print()
-
-
 
     computer_pass = "yes"
     user_pass = "yes"
