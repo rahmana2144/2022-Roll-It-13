@@ -1,12 +1,14 @@
 import random
 
-
 # generates an integer between 0 and 6
 # to simulate a roll of a die
 def roll_die():
     roll_result = random.randint(1, 6)
     return roll_result
 
+
+
+def two_rolls():
 
 # Checks that users enter an integer
 # that is more than 13
@@ -87,7 +89,7 @@ while user_score < target_score and comp_score < target_score:
         if user_points == 13:
             user_pass = "yes"
 
-            
+
         if user_pass == "no":
             roll_again = input("Do you want to roll the dice (type 'no' to pass): ")
         else:
@@ -168,10 +170,10 @@ while user_score < target_score and comp_score < target_score:
 
 
     # currently does not include double points!
-    elif user_points > computer_points
-    # Double user points if they are eligible
-    if double_points == "yes":
-        user_points *= 2
+    elif user_points > computer_points:
+        # Double user points if they are eligible
+        if double_points == "yes":
+            user_points *= 2
 
         print(f"👍👍👍Yay! You won the round and {user_points} points have"
               f"been added to your score👍👍👍")
