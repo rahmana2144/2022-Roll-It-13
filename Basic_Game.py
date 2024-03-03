@@ -8,7 +8,30 @@ def roll_die():
 
 
 
-def two_rolls():
+
+# rolls two dice and returns total and whether we
+# had a double roll
+def two_rolls(who):
+    double_score = "no"
+
+    # roll two dice
+    roll_1 = roll_die()
+    roll_2 = roll_die()
+
+    # check if we have a double score opportunity
+    if roll_1 == roll_2:
+        double_score = "yes"
+
+    # Find the total points (so far)
+
+    first_points = roll_1 + roll_2
+
+    # Show the user the result
+    print(f"{who}: {roll_1} & {roll_2} - Total: {first_points}")
+
+    return first_points, double_score
+
+
 
 # Checks that users enter an integer
 # that is more than 13
@@ -166,8 +189,7 @@ while user_score < target_score and comp_score < target_score:
               " have been added to your total score. The computer's score has "
               f"increased by {computer_points} points.😢😢😢")
 
-    add_points = computer_points
-
+        add_points = computer_points
 
     # currently does not include double points!
     elif user_points > computer_points:
