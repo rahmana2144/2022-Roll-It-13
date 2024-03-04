@@ -41,8 +41,3 @@ print(f"User- Lowest Score: {user_stats[0]}\t "
 print(f"Computer - Lowest Score: {comp_stats[0]}\t "
       f"Highest Score: {comp_stats[1]}\t "
       f"Average Score: {comp_stats[2]}")
-
-
-
-
-
