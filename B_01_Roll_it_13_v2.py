@@ -113,22 +113,28 @@ def get_stats(stats_list):
 user_score = 0
 comp_score = 0
 num_rounds = 0
+
 # create lists to hold user and computer scores
 user_scores = []
 comp_scores = []
+game_history = []
 
+# Program starts here (with a heading)
 print()
 print("🎲🎲 Roll it 13 🎲🎲")
 print()
 
+# Display instructions if user wants to see them.
 want_instructions = yes_no("Do you want to read the instructions?")
 
 if want_instructions == "yes":
     instructions()
 
+# Get a target score (must be an integer more than 13)
 target_score = int_check("Enter a target score :")
 print(target_score)
 
+# Loop game until wer have a winner
 while user_score < target_score and comp_score < target_score:
     # Add one to the number of rounds (for our heading)
     num_rounds += 1
@@ -262,7 +268,7 @@ while user_score < target_score and comp_score < target_score:
             user_points *= 2
 
         print(f"👍👍👍Yay! You won the round and {user_points} points have"
-              f"been added to your score👍👍👍")
+              f" been added to your score👍👍👍")
 
         add_points = user_points
 
@@ -271,6 +277,9 @@ while user_score < target_score and comp_score < target_score:
               f" both have {user_points}.👔👔👔")
 
         add_points = user_points
+
+    round_result = f"Round {num_rounds} - User: {user_points} \t Computer: {computer_points}"
+    game_history.append(round_result)
 
     # end of a single round
 
@@ -295,17 +304,42 @@ while user_score < target_score and comp_score < target_score:
     print()
 
 print()
-print(f"Your final score is {user_score}")
 
-if num_rounds < 1:
+# Display final winner and score information.
+print()
+if user_score > comp_score:
+    print("👍👍👍 Game over - You won👍👍👍")
+elif user_score < comp_score:
+    print("👎👎👎 Game over - You lost 👎👎👎")
+else:
+    print("👔👔👔 Game Over - It's a tie👔👔👔")
+
+print(f"Final scores: User ({user_score}) vs Computer ({comp_score}")
+print()
+
+# Display game history if user wants to see it
+show_history = yes_no("Do you want to see the game history?")
+if show_history == "yes":
+    print("\n⌛⌛⌛ Game History⌛⌛⌛")
+
+    for item in game_history:
+        print(item)
+
+    print()
+
+if num_rounds >= 1:
     user_stats = get_stats(user_scores)
     comp_stats = get_stats(comp_scores)
 
-print("📊📊📊 Game Statistics 📊📊📊")
-print(f"User- Lowest Score: {user_stats[0]}\t "
-      f"Highest Score: {user_stats[1]}\t "
-      f"Average Score: {user_stats[2]} ")
+    print("📊📊📊 Game Statistics 📊📊📊")
+    print(f"User- Lowest Score: {user_stats[0]}\t "
+          f"Highest Score: {user_stats[1]}\t "
+          f"Average Score: {user_stats[2]:.2f} ")
 
-print(f"Computer - Lowest Score: {comp_stats[0]}\t "
-      f"Highest Score: {comp_stats[1]}\t "
-      f"Average Score: {comp_stats[2]}")
+    print(f"Computer - Lowest Score: {comp_stats[0]}\t "
+          f"Highest Score: {comp_stats[1]}\t "
+          f"Average Score: {comp_stats[2]:.2f}")
+
+
+print()
+print("Thank you for playing.")
